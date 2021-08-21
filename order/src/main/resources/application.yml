@@ -1,0 +1,49 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: "jdbc:mysql://47.96.76.101:3306/micro_order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false"
+    username: root
+    password: Szw159421
+  application:
+    name: order
+
+
+## Mybatis SQL 打印(方法接口所在的包，不是Mapper.xml所在的包)
+#logging:
+#  level:
+#    com.awei.order.mapper: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+serverUrl: http://PRODUCT/
+
+PRODUCT:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#PRODUCT:
+#  ribbon:
+#    NFLoadBanlancerRuleClassName: com.awei.order.rule.AweiRule
+#    NFLoadBanlancerRuleClassName: com.netflix.loadbalancer.RandomRule
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize : 15
+  dashboard:
+    proxy-stream-allow-list: "127.0.0.1"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
