@@ -10,7 +10,6 @@ import com.awei.order.service.IOrderService;
 import com.awei.order.service.IProductService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -70,7 +69,6 @@ public class OrderController {
     }
 
     @GetMapping("/restemplate/{pid}")
-    @HystrixCommand(fallbackMethod = "restemplatePidFallback")
     public RestBean restemplatePid(@PathVariable Integer pid) {
         ResponseEntity<RestBean> exchange = restTemplate.exchange(serverUrl+"/product/" + pid, HttpMethod.GET, null, RestBean.class);
         System.out.println(exchange);
