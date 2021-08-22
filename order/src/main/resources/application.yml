@@ -12,4 +12,8 @@ spring:
     nacos:
       discovery:
         server-addr: 120.79.94.132:8848
+    sentinel:
+      transport:
+        port: 9999
+        dashboard: localhost:8080
 serverUrl: http://micro-product/
