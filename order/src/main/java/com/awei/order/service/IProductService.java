@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author: Awei
  * @create: 2021-08-14 13:58
  **/
-@FeignClient(value = "nacos-product")
+@FeignClient(value = "micro-product")
 @Component
 public interface IProductService {
 

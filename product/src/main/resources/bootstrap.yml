@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: micro-product
+  cloud:
+    nacos:
+      config:
+        server-addr: 120.79.94.132:8848
+        file-extension: yml
+  profiles:
+    active: dev

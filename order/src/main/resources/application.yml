@@ -7,9 +7,9 @@ spring:
     username: root
     password: Szw159421
   application:
-    name: nacos-order
+    name: micro-order
   cloud:
     nacos:
       discovery:
         server-addr: 120.79.94.132:8848
-serverUrl: http://nacos-product/
+serverUrl: http://micro-product/
